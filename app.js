@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const mongoose = require('mongoose')
 const homepageRoutes = require('./routes/homepage.js')
+const registrationRoutes = require('./routes/register.js')
 
 app.engine('mustache', mustache())
 app.set('view engine', 'mustache')
@@ -12,7 +13,8 @@ mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost:27017/code-snippets-test')
 
 app.use(express.static('public'))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(registrationRoutes)
 app.use(homepageRoutes)
 
 app.listen(3000, function () {
