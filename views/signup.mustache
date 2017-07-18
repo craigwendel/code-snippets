@@ -3,21 +3,41 @@
 <div class="form-flex">
   <div class="column">
     <form class="signup" action="/signup" method="post">
-      <div class="">
+      <div class="{{#error.errors.fullname}}error{{/error.errors.fullname}}">
         <label for="">Full Name:</label>
-        <input type="text" name="fullname" value="{{fullname}}">
+        <input type="text" name="fullname" value="{{user.fullname}}">
+        {{#error.errors.username}}
+        <div class="error">
+          Name is required
+        </div>
+      {{/error.errors.username}}
       </div>
-      <div class="">
+      <div class="{{#error.errors.username}}error{{/error.errors.username}}">
         <label for="">Username:</label>
-        <input type="text" name="username" value="{{username}}">
+        <input type="text" name="username" value="{{user.username}}">
+        {{#error.errors.username}}
+        <div class="error">
+          Username is required
+        </div>
+      {{/error.errors.username}}
       </div>
-      <div class="">
+      <div class="{{#error.errors.password}}error{{/error.errors.password}}">
         <label for="">Password:</label>
         <input type="password" name="password" value="">
+        {{#error.errors.password}}
+        <div class="error">
+          Password is required
+        </div>
+      {{/error.errors.password}}
       </div>
-      <div class="">
+      <div class="{{#error.errors.email}}error{{/error.errors.email}}">
         <label for="">Email:</label>
-        <input type="text" name="email" value="">
+        <input type="text" name="email" value="{{user.email}}">
+        {{#error.errors.email}}
+        <div class="error">
+          Email is required
+        </div>
+      {{/error.errors.email}}
       </div>
       <div class="">
         <input type="submit" name="" value="Create an Account!">

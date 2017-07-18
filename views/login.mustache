@@ -1,11 +1,19 @@
 <h1>Login to view your Code Snippets</h1>
 
+<div class="">
+  {{#error}}
+  <div class="">
+    <span>Username/Password is not correct</span>
+  </div>
+  {{/error}}
+</div>
+
 <div class="form-flex">
   <div class="column">
     <form class="login" action="/login" method="post">
       <div class="">
         <label for="">Username:</label>
-        <input type="text" name="username" value="">
+        <input type="text" name="username" value="{{user.username}}">
       </div>
       <div class="">
         <label for="">Password:</label>
